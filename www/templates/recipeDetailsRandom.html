@@ -4,16 +4,27 @@
     <h1 class="title">{{recipeList[selectedRecipe].title}}</h1>
     <button class="button button-icon ion-shuffle" ng-click="randomRecipe()"></button>
   </ion-header-bar>
-    
-  <ion-content>
-    <div class="item item-image">
+
+  <ion-content class="recDetBody">
+    <div class="recipeImage">
         <img src="{{recipeList[selectedRecipe].img}}">
     </div>
-    <h3>Ingredients:</h3>
-    <ul class="list">
-        <li class="item" ng-repeat="i in ingredients[selectedRecipe].ing"> {{i}} </li>
-    </ul>
-    <h3> Directions: </h3>
-      {{directions[selectedRecipe].dir}}
+      
+    <div class="list">
+      <h4 class="dividers"> Ingredients </h4>
+      <ul style="list-style-type: disc">
+        <li ng-repeat="i in ingredients[selectedRecipe].ing">{{i}}</li>
+      </ul>
+    </div>
+      
+    <h4 class="dividers"> Directions </h4>
+    <div class="card">
+      <div class="item item-text-wrap">
+        {{directions[selectedRecipe].dir}}
+      </div>
+      <div class="item item-text-wrap">
+        {{directions[selectedRecipe].dir}}
+      </div>
+    </div>
   </ion-content>
 </ion-view>
