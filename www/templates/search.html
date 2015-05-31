@@ -1,0 +1,60 @@
+<ion-view>
+  <ion-header-bar class="bar-assertive" align-title="center">
+    <a href="#/home"><button class="button button-icon icon ion-ios-home"></button></a>
+    <h1 class="title">Search recipes</h1>
+    <button class="button button-icon ion-funnel" ng-click="openModal()"></button>
+  </ion-header-bar>
+    
+  <ion-content>
+<!--  List of recipes  --> 
+    <div class="list card" ng-repeat="x in recipeListSF">
+      <a href="#/app/recipeList/{{x.id}}" ng-click="selectRecipe({{x.id}})">
+      <div class="item item-image">
+        <img src="{{x.img}}">
+        <span class="recipeTitle">{{x.title}}</span>
+      </div>
+      <div class="item">
+        <p>{{x.details}}</p>
+      </div> </a>
+   </div>
+  </ion-content>
+</ion-view>
+
+<!-- Modal page, filters -->
+<script id="filterSearch.html" type="text/ng-template">
+    <ion-modal-view view-title="Search">
+      <ion-content>
+        <div class="button-bar">
+          <a class="button icon-left ion-android-close" ng-click="buttonCancel()">Cancel</a>
+          <a class="button icon-left ion-funnel" ng-click="buttonOK()">Ok</a>
+        </div>
+<!--         style="color:white; background: red"-->
+        <div class="list">
+          <div class="item item-divider"> Category </div>
+          <ion-checkbox ng-repeat="item in checkListCat"
+                      ng-model="item.checked" 
+                      ng-checked="item.checked">
+            {{ item.text }}
+          </ion-checkbox>
+          
+          <div class="item item-divider"> Difficulty </div>
+          <ion-checkbox ng-repeat="item in checkListDif"
+                      ng-model="item.checked" 
+                      ng-checked="item.checked">
+            {{ item.text }}
+          </ion-checkbox>
+          
+          <div class="item item-divider"> Time </div>
+          <ion-checkbox ng-repeat="item in checkListTime"
+                      ng-model="item.checked" 
+                      ng-checked="item.checked">
+            {{ item.text }}
+          </ion-checkbox>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+</script>
+
+
+
+

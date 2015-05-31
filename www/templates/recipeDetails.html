@@ -1,0 +1,29 @@
+<ion-view view-title="{{recipeList[selectedRecipe-1].title}}">
+  <ion-nav-bar class="bar-assertive" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+    
+  <ion-content class="recDetBody">
+    <div class="recipeImage">
+        <img src="{{recipeList[selectedRecipe-1].img}}">
+    </div>
+      
+    <div class="list">
+      <h4 class="dividers"> Ingredients </h4>
+      <ul style="list-style-type: disc">
+        <li ng-repeat="i in ingredients[selectedRecipe-1].ing">{{i}}</li>
+      </ul>
+    </div>
+      
+    <h4 class="dividers"> Directions </h4>
+    <div class="card">
+      <div class="item item-text-wrap">
+        {{directions[selectedRecipe-1].dir}}
+      </div>
+      <div class="item item-text-wrap">
+        {{directions[selectedRecipe-1].dir}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

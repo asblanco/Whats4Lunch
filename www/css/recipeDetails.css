@@ -1,0 +1,17 @@
+.recDetBody{
+/*    height: 40%;*/
+}
+
+.recipeImage img {
+    width: 100%;
+}
+
+.dividers {
+    text-transform: uppercase;
+    color: crimson;
+    padding-left: 4%;
+}
+
+li {
+    padding-left: 5%;
+}

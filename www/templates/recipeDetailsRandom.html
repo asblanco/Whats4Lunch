@@ -1,0 +1,19 @@
+<ion-view view-title="{{recipeList[selectedRecipe].title}}">
+  <ion-header-bar class="bar-assertive" align-title="center">
+    <a href="#/home"><button class="button button-icon icon ion-ios-home"></button></a>
+    <h1 class="title">{{recipeList[selectedRecipe].title}}</h1>
+    <button class="button button-icon ion-shuffle" ng-click="randomRecipe()"></button>
+  </ion-header-bar>
+    
+  <ion-content>
+    <div class="item item-image">
+        <img src="{{recipeList[selectedRecipe].img}}">
+    </div>
+    <h3>Ingredients:</h3>
+    <ul class="list">
+        <li class="item" ng-repeat="i in ingredients[selectedRecipe].ing"> {{i}} </li>
+    </ul>
+    <h3> Directions: </h3>
+      {{directions[selectedRecipe].dir}}
+  </ion-content>
+</ion-view>
