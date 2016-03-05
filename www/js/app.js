@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'app.controllers' is found in controllers folder
 angular
-.module('starter', ['ionic', 'starter.controllers', 'underscore'])
+.module('starter', ['ionic', 'starter.controllers', 'underscore', 'templates'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,8 +21,9 @@ angular
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $stateProvider 
+    
 //-------------------- Page 0 -----------------------
   
   .state('home', {
@@ -82,6 +83,10 @@ angular
     }
   });
     
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/home');
+    //if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/home');
+    
+    //Activate native scroll on all the app
+    if(!ionic.Platform.isIOS())
+        $ionicConfigProvider.scrolling.jsScrolling(false); 
 });

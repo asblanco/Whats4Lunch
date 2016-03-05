@@ -2,10 +2,10 @@
 <widget id="com.ionicframework.whats4lunch456805" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>What\&apos;s 4 lunch</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Andrea Sanchez Blanco thesis app about hybrid app development.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="andreasanchezblanco@gmail.com" href="https://github.com/chezwhite/">
+      Andrea Sanchez Blanco
     </author>
   <content src="index.html"/>
   <access origin="*"/>

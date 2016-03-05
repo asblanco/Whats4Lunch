@@ -1491,8 +1491,8 @@ function($rootScope, $state, $location, $document, $ionicPlatform, $ionicHistory
  *   $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
  * });
  * ```
- */
-
+ */    
+    
 /**
  * @ngdoc method
  * @name $ionicConfigProvider#views.transition
