@@ -66,5 +66,4 @@ angular
     $scope.addIng = function(ing){
         $scope.ingredients.push(ing);
     };
-    
 })

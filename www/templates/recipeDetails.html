@@ -18,11 +18,8 @@
       
     <h4 class="dividers"> Directions </h4>
     <div class="card">
-      <div class="item item-text-wrap">
-        {{directions[selectedRecipe-1].dir}}
-      </div>
-      <div class="item item-text-wrap">
-        {{directions[selectedRecipe-1].dir}}
+      <div ng-repeat="d in directions[selectedRecipe-1].dir" class="item item-text-wrap">
+        {{d}}
       </div>
     </div>
   </ion-content>

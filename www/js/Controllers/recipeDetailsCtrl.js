@@ -5,12 +5,23 @@ angular
 .controller('recipeDetailsCtrl', function($scope) {
 
     $scope.directions = [
-        {id: 1, dir: '1. In a small saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.'},
-        {id: 2, dir: '2. In a big saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.'},
-        {id: 3, dir: '3. In a medium saucepan, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.'},
-        {id: 4, dir: '4. In a small saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.'},
-        {id: 5, dir: 'Preheat oven to 425 degrees F (220 degrees C)'},
-        {id: 6, dir: 'Preheat oven to 425 degrees F (200 degrees C)'}
+        {id: 1, dir: ['1. In a small saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.',
+                      '2. In a big saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.']
+        },
+        {id: 2, dir: ['1. In a big saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.',
+                     'Preheat oven to 425 degrees F (220 degrees C)']
+        },
+        {id: 3, dir: ['1. In a small saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.',
+                      '2. In a medium saucepan, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.',
+                     '3. Preheat oven to 425 degrees F (200 degrees C)']
+        },
+        {id: 4, dir: ['4. In a small saucepan over low heat, combine the cornstarch, cold water, sugar, soy sauce, vinegar, garlic, ginger and ground black pepper. Let simmer, stirring frequently, until sauce thickens and bubbles.',
+                     'Preheat oven to 425 degrees F (220 degrees C)']
+        },
+        {id: 5, dir: ['Preheat oven to 425 degrees F (220 degrees C)']
+        },
+        {id: 6, dir: ['Preheat oven to 425 degrees F (200 degrees C)']
+        }
     ];
     
 });

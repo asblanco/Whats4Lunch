@@ -5,9 +5,16 @@
 // the 2nd parameter is an array of 'requires'
 // 'app.controllers' is found in controllers folder
 angular
-.module('starter', ['ionic', 'starter.controllers', 'underscore', 'templates'])
+.module('starter', ['ionic', 'starter.controllers', 'underscore', 'ionic.ion.imageCacheFactory'])
 
-.run(function($ionicPlatform) {
+/*$ImageCacheFactory on .run to preload on cache memory the firsts images that the app displays avoiding load the page first without any image*/
+.run(function($ionicPlatform, $ImageCacheFactory/*, $templateCache*/) {
+  $ImageCacheFactory.Cache([
+      "img/espaguetis-carbonara.jpg",
+      "img/chicken.jpg",
+      "img/chili.jpg"
+  ]);
+    
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -74,6 +81,7 @@ angular
   
 //-------------------- Page 2 -----------------------
   .state('app.recipeDetails', {
+    cache: false,
     url: "/recipeList/:recipeId",
     views: {
       'menuContent': {

@@ -6,7 +6,7 @@
   </ion-header-bar>
     
   <ion-content>
-  <div class="list card" ng-repeat="x in recipeListIng">
+    <div class="list card" ng-repeat="x in recipeListIng">
       <a href="#/app/recipeList/{{x.id}}" ng-click="selectRecipe({{x.id}})">
       <div class="item item-image">
         <img src="{{x.img}}">
@@ -15,9 +15,8 @@
       <div class="item">
         <p>{{x.details}}</p>
       </div>
-
       </a>
-   </div>
+    </div>
   </ion-content>
 </ion-view>
 
@@ -29,35 +28,35 @@
         <h1 class="title">My ingredients</h1>
     </ion-header-bar>
       
-  <ion-content>
-    <h4> Introduce your available ingredients: </h4>
+    <ion-content>
+      <h4> Introduce your available ingredients: </h4>
       
 <!-- Label to introduce the new ingredient -->
-    <div class="list">
-      <label class="item item-input item-floating-label">
-        <span class="input-label">Insert ingredient</span>
-        <input type="text" placeholder="Insert ingredient" ng-model="query">
-      </label>
-    </div>
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Insert ingredient</span>
+          <input type="text" placeholder="Insert ingredient" ng-model="query">
+        </label>
+      </div>
       
 <!-- Show the ingredients in a list -->
-    <ul class="list">
-      <li class="item item-checkbox" ng-repeat="ing in ingredientsCheckList | filter:query">
-         <label class="checkbox">
-           <input type="checkbox" ng-model="ing.checked">
-         </label> {{ing.name}}
-      </li>
-    </ul>
-      
-  </ion-content>
+      <ul class="list">
+        <li class="item item-checkbox" ng-repeat="ing in ingredientsCheckList | filter:query">
+           <label class="checkbox">
+             <input type="checkbox" ng-model="ing.checked">
+           </label> {{ing.name}}
+        </li>
+      </ul>
+
+    </ion-content>
     
 <!--  Footer, button search  -->
-  <ion-footer-bar>
+    <ion-footer-bar>
       <div class="tabs">
         <a class="tab-item" ng-click="buttonSearch()">
           <h1 class="title">Search</h1>
         </a>
       </div>
-   </ion-footer-bar>
- </ion-modal-view>
+    </ion-footer-bar>
+  </ion-modal-view>
 </script>
