@@ -31,10 +31,10 @@ angular
     //Save the values of the check boxes
     $scope.checksTime = _.pluck($scope.checkListTime, 'checked');
     
-    //Modal page of Search
+  /* Modal page of Search */
     $ionicModal.fromTemplateUrl('filterSearch.html', {
         scope: $scope,
-      animation: 'slide-in-up'
+        animation: 'slide-in-right'
     }).then(function(modal) {
       $scope.modal = modal;
     });
@@ -58,7 +58,7 @@ angular
       // Execute action
     });
     
-    //Execute filters
+/*Execute filters*/
     $scope.buttonOK = function(){ 
     //--- Category filter ---
         var countChecksCat = 0; //Increases +1 in each filter it enters

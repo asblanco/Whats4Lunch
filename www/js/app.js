@@ -81,7 +81,6 @@ angular
   
 //-------------------- Page 2 -----------------------
   .state('app.recipeDetails', {
-    cache: false,
     url: "/recipeList/:recipeId",
     views: {
       'menuContent': {
