@@ -6,6 +6,7 @@
   </ion-header-bar>
     
   <ion-content>
+    <h1>{{noIngredients}}</h1>
     <div class="list card" ng-repeat="x in recipeListIng">
       <a href="#/app/recipeList/{{x.id}}" ng-click="selectRecipe({{x.id}})">
       <div class="item item-image">
@@ -31,11 +32,11 @@
     <ion-content>
       <h4> Introduce your available ingredients: </h4>
       
-<!-- Label to introduce the new ingredient -->
+<!-- Label to search ingredient -->
       <div class="list">
         <label class="item item-input item-floating-label">
-          <span class="input-label">Insert ingredient</span>
-          <input type="text" placeholder="Insert ingredient" ng-model="query">
+          <span class="input-label">Search ingredient</span>
+          <input type="text" placeholder="Search ingredient" ng-model="query">
         </label>
       </div>
       

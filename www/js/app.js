@@ -8,7 +8,7 @@ angular
 .module('starter', ['ionic', 'starter.controllers', 'underscore', 'ionic.ion.imageCacheFactory'])
 
 /*$ImageCacheFactory on .run to preload on cache memory the firsts images that the app displays avoiding load the page first without any image*/
-.run(function($ionicPlatform, $ImageCacheFactory/*, $templateCache*/) {
+.run(function($ionicPlatform, $ImageCacheFactory) {
   $ImageCacheFactory.Cache([
       "img/espaguetis-carbonara.jpg",
       "img/chicken.jpg",
@@ -16,8 +16,7 @@ angular
   ]);
     
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -73,8 +72,7 @@ angular
     url: "/random/:recipeId",
     views: {
       'menuContent': {
-        templateUrl: "templates/recipeDetailsRandom.html",
-        controller: 'recipeDetailsCtrl'
+        templateUrl: "templates/recipeDetailsRandom.html"
       }
     }
   })
@@ -84,8 +82,7 @@ angular
     url: "/recipeList/:recipeId",
     views: {
       'menuContent': {
-        templateUrl: "templates/recipeDetails.html",
-        controller: 'recipeDetailsCtrl'
+        templateUrl: "templates/recipeDetails.html"
       }
     }
   });

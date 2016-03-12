@@ -72,7 +72,7 @@ angular
         for (i=0; i < long; i++){
             if($scope.checksCat[i] == true){
                 $scope.recipeListSF = _.union($scope.recipeListSF, _.where($scope.recipeList, {cat: $scope.categories[i]}));
-            countChecksCat++;
+                countChecksCat++;
             }
         }
         

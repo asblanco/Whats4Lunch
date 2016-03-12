@@ -3,6 +3,8 @@ angular
 
 .controller('kitchenCtrl', function($scope, $ionicModal) {
     $scope.recipeListIng = $scope.recipeList;
+    $scope.noIngredients = "";
+    $scope.ingredients = [];
     
     $scope.buttonSearch = function (){
         $scope.recipeListIng = [];
@@ -56,10 +58,6 @@ angular
     $scope.$on('modal.removed', function() {
       // Execute action
     });
-    
-    $scope.ingredients = [
-         
-     ];
     
     //Add the new ingredient to the ingredients list
     $scope.addIng = function(ing){

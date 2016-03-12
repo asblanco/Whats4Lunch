@@ -1,4 +1,5 @@
-angular.module('starter.filters', [])
+angular
+.module('starter.filters', [])
 
 .filter('getById', function() {
   return function(input, id) {

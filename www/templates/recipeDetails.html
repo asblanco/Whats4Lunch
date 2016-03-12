@@ -1,4 +1,4 @@
-<ion-view view-title="{{recipeList[selectedRecipe-1].title}}">
+<ion-view view-title="{{recipeDetails.title}}">
   <ion-nav-bar class="bar-assertive" align-title="center">
     <ion-nav-back-button>
     </ion-nav-back-button>
@@ -6,20 +6,22 @@
     
   <ion-content class="recDetBody">
     <div class="recipeImage">
-        <img src="{{recipeList[selectedRecipe-1].img}}">
+        <img src="{{recipeDetails.img}}">
     </div>
       
     <div class="list">
       <h4 class="dividers"> Ingredients </h4>
       <ul style="list-style-type: disc">
-        <li ng-repeat="i in ingredients[selectedRecipe-1].ing">{{i}}</li>
+        <li ng-repeat="i in recipeDetails.ing">
+            {{i}}
+        </li>
       </ul>
     </div>
       
     <h4 class="dividers"> Directions </h4>
     <div class="card">
-      <div ng-repeat="d in directions[selectedRecipe-1].dir" class="item item-text-wrap">
-        {{d}}
+      <div ng-repeat="d in recipeDetails.dir" class="item item-text-wrap">
+          {{d}}
       </div>
     </div>
   </ion-content>
