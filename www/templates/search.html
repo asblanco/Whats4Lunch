@@ -7,15 +7,16 @@
     
   <ion-content>
 <!--  List of recipes  --> 
-    <div class="list card" ng-repeat="x in recipeListSF">
-      <a href="#/app/recipeList/{{x.id}}" ng-click="selectRecipe({{x.id}})">
-      <div class="item item-image">
-        <img src="{{x.img}}">
-        <span class="recipeTitle">{{x.title}}</span>
-      </div>
-      <div class="item">
-        <p>{{x.details}}</p>
-      </div> </a>
+   <div class="list card" ng-repeat="object in vm.data">
+      <a href="#/app/recipeList/{{object.id}}" ng-click="selectRecipe({{object.id}})">
+        <div class="item item-image">
+          <img src="http://w4l-recipes.appspot.com/img/{{object.image}}">
+          <span class="recipeTitle">{{object.name}}</span>
+        </div>
+        <div class="item">
+          <p>{{object.description}}</p>
+        </div>
+     </a>
    </div>
   </ion-content>
 </ion-view>
@@ -62,5 +63,3 @@
     </ion-footer-bar>
   </ion-modal-view>
 </script>
-
-

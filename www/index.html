@@ -19,6 +19,10 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+    
+    <!-- Backand SDK for Angular -->
+<!--     <script src="//cdn.backand.net/backand/dist/1.8.2/backand.min.js"></script> -->
+    <script src="lib/angularbknd-sdk/dist/backand.min.js"></script>
       
     <!-- Angular template cache -->
     <script src="public/templates.js"></script>
@@ -29,14 +33,14 @@
     <script src="js/Controllers/appCtrl.js"></script>
     <script src="js/Controllers/searchCtrl.js"></script>
     <script src="js/Controllers/kitchenCtrl.js"></script>
-    <script src="js/Controllers/recipeDetailsCtrl.js"></script>
     <script src="js/Factories/recipeFactory.js"></script>
+    <script src="js/services.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/underscore.js"></script>
       
   </head>
 <!-- ng-app make auto-bootstrap in the application -->
-  <body ng-app="starter">
+  <body ng-app="w4l">
     <ion-nav-view>
     </ion-nav-view>
   </body>

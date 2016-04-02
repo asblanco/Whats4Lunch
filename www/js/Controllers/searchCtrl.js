@@ -1,5 +1,5 @@
 angular
-.module('starter.controllers')
+.module('w4l.controllers')
 
 //Search controller: modal page, checkboxes and filters
 .controller('searchCtrl', function($scope, $ionicModal) {
@@ -58,7 +58,7 @@ angular
       // Execute action
     });
     
-/*Execute filters*/
+/*---- Method to execute Filters ----*/
     $scope.buttonOK = function(){ 
     //--- Category filter ---
         var countChecksCat = 0; //Increases +1 in each filter it enters

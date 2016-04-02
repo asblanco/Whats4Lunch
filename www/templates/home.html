@@ -6,15 +6,15 @@
 
   <ion-content scroll="false">
     <!--    SEARCH recipes    -->
-    <div class="imgS">
+    <div class="imgS" data-tap-disabled="true">
         <a href="#/app/search">
           <div class="textMiddle"><h1>Search</h1></div>
           <img src="img/Search.jpg">
         </a>
     </div>
-
+    
     <!--    Recipes in My kitchen    -->
-    <div class="imgK">
+    <div class="imgK" data-tap-disabled="true">
         <a href="#/app/kitchen">
           <div class="textMiddle"> <h1>My kitchen</h1> </div>
           <img src="img/Kitchen.jpg">
@@ -22,7 +22,7 @@
     </div>
 
     <!--    RANDOM recipes    -->
-    <div class="imgR">
+    <div class="imgR" data-tap-disabled="true">
         <a href="#/app/random/{{selectedRecipe}}" ng-click="randomRecipe()">
             <div class="textMiddle"><h1>Astonish me!</h1></div>
           <img src="img/Random.jpg">            

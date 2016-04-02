@@ -1,5 +1,5 @@
 angular
-.module('starter.filters', [])
+.module('w4l.filters', [])
 
 .filter('getById', function() {
   return function(input, id) {

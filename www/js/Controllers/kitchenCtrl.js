@@ -1,5 +1,5 @@
 angular
-.module('starter.controllers')
+.module('w4l.controllers')
 
 .controller('kitchenCtrl', function($scope, $ionicModal) {
     $scope.recipeListIng = $scope.recipeList;

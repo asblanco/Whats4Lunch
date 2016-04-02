@@ -1,8 +1,8 @@
 angular
-.module('starter.controllers', ['starter.filters', 'starter.factories'])
+.module('w4l.controllers', ['w4l.filters', 'w4l.factories'])
 
 //URL /app
-.controller('appCtrl', function($scope, $recipeFactory) {
+.controller('appCtrl', function($scope, $recipeFactory, ItemsModel) {
     $scope.icon = "";
     $scope.actionIcon = "";
     $scope.selectedRecipe = 0;
@@ -31,4 +31,13 @@ angular
     $scope.recipeList = $recipeFactory.all();
     
     $scope.ingredientsCheckList = $recipeFactory.getIng(); 
-})
+  
+    var vm = this;
+    function getAll() {
+      ItemsModel.all()
+          .then(function (result) {
+              vm.data = result.data.data;
+          });
+    }
+    getAll();
+});

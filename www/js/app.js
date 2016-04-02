@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'app.controllers' is found in controllers folder
 angular
-.module('starter', ['ionic', 'starter.controllers', 'underscore', 'ionic.ion.imageCacheFactory'])
+.module('w4l', ['ionic', 'backand', 'w4l.controllers', 'w4l.services', 'underscore', 'ionic.ion.imageCacheFactory'])
 
 /*$ImageCacheFactory on .run to preload on cache memory the firsts images that the app displays avoiding load the page first without any image*/
 .run(function($ionicPlatform, $ImageCacheFactory) {
@@ -27,11 +27,14 @@ angular
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-  $stateProvider 
-    
-//-------------------- Page 0 -----------------------
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, BackandProvider, $httpProvider) {
+  BackandProvider.setAppName('whats4lunch');
+  BackandProvider.setSignUpToken('1b3af3f6-bf4c-44f9-9fa5-d1d886f96c48');
+  BackandProvider.setAnonymousToken('b9616f50-b3b9-48fd-ad01-c9072d1c1338');
   
+  $stateProvider  
+//-------------------- Page 0 -----------------------
+
   .state('home', {
     url: "/home",
     templateUrl: "templates/home.html"
@@ -40,12 +43,11 @@ angular
   .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "templates/homeButton.html",
-    controller: 'appCtrl'
+    templateUrl: "templates/menuContent.html",
+    controller: 'appCtrl as vm'
   })
   
 //-------------------- Page 1 -----------------------
-  //Page showed from Search button
     .state('app.search', {
       url: "/search",
       views: {
@@ -56,7 +58,6 @@ angular
       }
     })
 
-  //Page showed from I have button
   .state('app.kitchen', {
     url: "/kitchen",
     views: {
@@ -67,7 +68,6 @@ angular
     }
   })
   
-  //Page showed from random button
   .state('app.random', {
     url: "/random/:recipeId",
     views: {

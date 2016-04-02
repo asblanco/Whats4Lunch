@@ -1,5 +1,5 @@
 angular
-.module('starter.factories', [])
+.module('w4l.factories', [])
 
 .factory('$recipeFactory', function() {
         
