@@ -5,16 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'app.controllers' is found in controllers folder
 angular
-.module('w4l', ['ionic', 'backand', 'w4l.controllers', 'w4l.services', 'underscore', 'ionic.ion.imageCacheFactory'])
+.module('w4l', ['ionic', 'backand', 'w4l.controllers', 'w4l.services', 'underscore'])
 
 /*$ImageCacheFactory on .run to preload on cache memory the firsts images that the app displays avoiding load the page first without any image*/
-.run(function($ionicPlatform, $ImageCacheFactory) {
-  $ImageCacheFactory.Cache([
-      "img/espaguetis-carbonara.jpg",
-      "img/chicken.jpg",
-      "img/chili.jpg"
-  ]);
-    
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -27,14 +21,13 @@ angular
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, BackandProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, BackandProvider, $httpProvider, $ionicConfigProvider) {
   BackandProvider.setAppName('whats4lunch');
   BackandProvider.setSignUpToken('1b3af3f6-bf4c-44f9-9fa5-d1d886f96c48');
   BackandProvider.setAnonymousToken('b9616f50-b3b9-48fd-ad01-c9072d1c1338');
   
   $stateProvider  
 //-------------------- Page 0 -----------------------
-
   .state('home', {
     url: "/home",
     templateUrl: "templates/home.html"

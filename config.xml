@@ -8,6 +8,8 @@
       Andrea Sanchez Blanco
     </author>
   <content src="index.html"/>
+  <allow-navigation href="http://w4l-recipes.appspot.com/*" />
+  <allow-navigation href="https://api.backand.com/1/objects/*" />
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>

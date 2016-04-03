@@ -2,11 +2,41 @@ angular
 .module('w4l.controllers', ['w4l.filters', 'w4l.factories'])
 
 //URL /app
-.controller('appCtrl', function($scope, $recipeFactory, ItemsModel) {
+.controller('appCtrl', function($scope, $recipeFactory, RecipesModel, Recipes_IngredientsModel, IngredientsModel, InstructionsModel, LevelsModel, CategoriesModel) {
+    var vm = this;
+    function getAll() {
+      RecipesModel.all()
+          .then(function (result) {
+              vm.data = result.data.data;
+          });
+    }
+    function getDetails(recipeId) {
+      RecipesModel.fetch(recipeId)
+          .then(function (result) {
+              vm.details = result.data.data[0];
+              vm.details2 = vm.details.__metadata.descriptives;
+          });
+    }
+    function getIngredients(recipeId) {
+      Recipes_IngredientsModel.fetchIngredients(recipeId)
+          .then(function (result) {
+              vm.ingredients = result.data.data;
+          });
+    }
+    function getInstructions(recipeId) {
+      InstructionsModel.fetchInstructions(recipeId)
+          .then(function (result) {
+              vm.instructions = result.data.data;
+          });
+    }
+    getAll();
+  
     $scope.icon = "";
     $scope.actionIcon = "";
     $scope.selectedRecipe = 0;
     $scope.recipeDetails = "";
+    $scope.recipeIngredients = "";
+    $scope.recipeInstructions = "";
 
     $scope.actualView = function(cIcon){
         $scope.icon = cIcon;
@@ -16,10 +46,13 @@ angular
         $scope.actionIcon = aIcon;
     };
     
-    //Function to enter in the details of a recipe
+    //Enter in the details of a recipe
     $scope.selectRecipe = function(sRec){
         $scope.selectedRecipe = sRec;
-        $scope.recipeDetails = $recipeFactory.getRecipe($scope.selectedRecipe);
+//      $scope.recipeDetails = $recipeFactory.getRecipe($scope.selectedRecipe);
+        getDetails(sRec);
+        getIngredients(sRec);
+        getInstructions(sRec);
     };
     
     //Create a random number to select a random recipe
@@ -31,13 +64,4 @@ angular
     $scope.recipeList = $recipeFactory.all();
     
     $scope.ingredientsCheckList = $recipeFactory.getIng(); 
-  
-    var vm = this;
-    function getAll() {
-      ItemsModel.all()
-          .then(function (result) {
-              vm.data = result.data.data;
-          });
-    }
-    getAll();
 });

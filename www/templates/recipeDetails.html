@@ -1,4 +1,4 @@
-<ion-view view-title="{{recipeDetails.title}}">
+<ion-view view-title="{{vm.data[selectedRecipe-1].name}}">
   <ion-nav-bar class="bar-assertive" align-title="center">
     <ion-nav-back-button>
     </ion-nav-back-button>
@@ -6,22 +6,26 @@
     
   <ion-content class="recDetBody">
     <div class="recipeImage">
-        <img src="{{recipeDetails.img}}">
+        <img src="http://w4l-recipes.appspot.com/img/{{vm.data[selectedRecipe-1].image}}">
     </div>
-      
+    <h5>Preparation time: {{vm.details.prepTime}} minutes</h5>
+    <h5>Cooking time: {{vm.details.cookTime}} minutes</h5>
+    <h5>Servings: {{vm.details.servings}}</h5>
+    <h5>Level: {{vm.details2.level.label}}</h5>
+    <h5>Category: {{vm.details2.category.label}}</h5>
+    <h4 class="dividers"> Ingredients </h4>
     <div class="list">
-      <h4 class="dividers"> Ingredients </h4>
       <ul style="list-style-type: disc">
-        <li ng-repeat="i in recipeDetails.ing">
-            {{i}}
+        <li ng-repeat="i in vm.ingredients">
+            - {{i.quantity}} {{i.__metadata.descriptives.ingredient.label}}
         </li>
       </ul>
     </div>
       
     <h4 class="dividers"> Directions </h4>
     <div class="card">
-      <div ng-repeat="d in recipeDetails.dir" class="item item-text-wrap">
-          {{d}}
+      <div ng-repeat="d in vm.instructions" class="item item-text-wrap">
+          {{d.instruction}}
       </div>
     </div>
   </ion-content>
