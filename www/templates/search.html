@@ -32,17 +32,17 @@
     <ion-content>
       <div class="list">
         <div style="color:red; background: white" class="item item-divider"> CATEGORY </div>
-        <ion-checkbox ng-repeat="item in checkListCat"
-                    ng-model="item.checked" 
-                    ng-checked="item.checked">
-          {{ item.text }}
+        <ion-checkbox ng-repeat="cat in vm.categories"
+                    ng-model="cat.checked" 
+                    ng-checked="cat.checked">
+          {{ cat.name }}
         </ion-checkbox>
 
         <div style="color:red; background: white" class="item item-divider"> DIFFICULTY </div>
-        <ion-checkbox ng-repeat="item in checkListDif"
-                    ng-model="item.checked" 
-                    ng-checked="item.checked">
-          {{ item.text }}
+        <ion-checkbox ng-repeat="level in vm.levels"
+                    ng-model="level.checked" 
+                    ng-checked="level.checked">
+          {{ level.name }}
         </ion-checkbox>
 
         <div style="color:red; background: white" class="item item-divider"> TIME </div>

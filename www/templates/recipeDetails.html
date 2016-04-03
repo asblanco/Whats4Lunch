@@ -1,4 +1,4 @@
-<ion-view view-title="{{vm.data[selectedRecipe-1].name}}">
+<ion-view view-title="{{vm.details.name}}">
   <ion-nav-bar class="bar-assertive" align-title="center">
     <ion-nav-back-button>
     </ion-nav-back-button>
@@ -6,7 +6,7 @@
     
   <ion-content class="recDetBody">
     <div class="recipeImage">
-        <img src="http://w4l-recipes.appspot.com/img/{{vm.data[selectedRecipe-1].image}}">
+        <img src="http://w4l-recipes.appspot.com/img/{{vm.details.image}}">
     </div>
     <h5>Preparation time: {{vm.details.prepTime}} minutes</h5>
     <h5>Cooking time: {{vm.details.cookTime}} minutes</h5>
@@ -16,7 +16,7 @@
     <h4 class="dividers"> Ingredients </h4>
     <div class="list">
       <ul style="list-style-type: disc">
-        <li ng-repeat="i in vm.ingredients">
+        <li ng-repeat="i in vm.recipeIingredients">
             - {{i.quantity}} {{i.__metadata.descriptives.ingredient.label}}
         </li>
       </ul>

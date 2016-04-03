@@ -17,10 +17,10 @@ angular
               vm.details2 = vm.details.__metadata.descriptives;
           });
     }
-    function getIngredients(recipeId) {
+    function getRecipeIngredients(recipeId) {
       Recipes_IngredientsModel.fetchIngredients(recipeId)
           .then(function (result) {
-              vm.ingredients = result.data.data;
+              vm.recipeIingredients = result.data.data;
           });
     }
     function getInstructions(recipeId) {
@@ -29,14 +29,34 @@ angular
               vm.instructions = result.data.data;
           });
     }
+    function getCategories() {
+      CategoriesModel.all()
+          .then(function (result) {
+              vm.categories = result.data.data;
+          });
+    }
+    function getLevels() {
+      LevelsModel.all()
+          .then(function (result) {
+              vm.levels = result.data.data;
+          });
+    }
+    function getIngredients() {
+      IngredientsModel.all()
+          .then(function (result) {
+              vm.ingredients = result.data.data;
+          });
+    }
     getAll();
+    getCategories();
+    getLevels();
   
     $scope.icon = "";
     $scope.actionIcon = "";
     $scope.selectedRecipe = 0;
-    $scope.recipeDetails = "";
-    $scope.recipeIngredients = "";
-    $scope.recipeInstructions = "";
+//    $scope.recipeDetails = "";
+//    $scope.recipeIngredients = "";
+//    $scope.recipeInstructions = "";
 
     $scope.actualView = function(cIcon){
         $scope.icon = cIcon;
@@ -51,7 +71,7 @@ angular
         $scope.selectedRecipe = sRec;
 //      $scope.recipeDetails = $recipeFactory.getRecipe($scope.selectedRecipe);
         getDetails(sRec);
-        getIngredients(sRec);
+        getRecipeIngredients(sRec);
         getInstructions(sRec);
     };
     
@@ -63,5 +83,6 @@ angular
     
     $scope.recipeList = $recipeFactory.all();
     
-    $scope.ingredientsCheckList = $recipeFactory.getIng(); 
+//    $scope.ingredientsCheckList = $recipeFactory.getIng(); 
+    $scope.ingredientsCheckList = vm.ingredients; 
 });

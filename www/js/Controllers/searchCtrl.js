@@ -59,7 +59,7 @@ angular
     });
     
 /*---- Method to execute Filters ----*/
-    $scope.buttonOK = function(){ 
+    $scope.buttonOK = function(){
     //--- Category filter ---
         var countChecksCat = 0; //Increases +1 in each filter it enters
         $scope.checksCat = _.pluck($scope.checkListCat, 'checked');

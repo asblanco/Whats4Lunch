@@ -6,7 +6,7 @@
     </description>
   <author email="andreasanchezblanco@gmail.com" href="https://github.com/chezwhite/">
       Andrea Sanchez Blanco
-    </author>
+  </author>
   <content src="index.html"/>
   <allow-navigation href="http://w4l-recipes.appspot.com/*" />
   <allow-navigation href="https://api.backand.com/1/objects/*" />
