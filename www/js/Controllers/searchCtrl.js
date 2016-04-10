@@ -2,9 +2,11 @@ angular
 .module('w4l.controllers')
 
 //Search controller: modal page, checkboxes and filters
-.controller('searchCtrl', function($scope, $ionicModal) {
+.controller('searchCtrl', function($scope, $ionicModal, searchFactory) {
     //recipeListSF is the list shown in the view
     $scope.recipeListSF = $scope.recipeList;
+    $scope.categories = searchFactory.allCategories();
+    $scope.levels = searchFactory.allLevels();
     
     //Checkboxes of the modal page
     $scope.checkListCat = [

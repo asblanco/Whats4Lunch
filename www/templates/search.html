@@ -7,7 +7,7 @@
     
   <ion-content>
 <!--  List of recipes  --> 
-   <div class="list card" ng-repeat="object in vm.data">
+   <div class="list card" ng-repeat="object in recipes.content">
       <a href="#/app/recipeList/{{object.id}}" ng-click="selectRecipe({{object.id}})">
         <div class="item item-image">
           <img src="http://w4l-recipes.appspot.com/img/{{object.image}}">
@@ -32,14 +32,14 @@
     <ion-content>
       <div class="list">
         <div style="color:red; background: white" class="item item-divider"> CATEGORY </div>
-        <ion-checkbox ng-repeat="cat in vm.categories"
+        <ion-checkbox ng-repeat="cat in categories.content"
                     ng-model="cat.checked" 
                     ng-checked="cat.checked">
           {{ cat.name }}
         </ion-checkbox>
 
         <div style="color:red; background: white" class="item item-divider"> DIFFICULTY </div>
-        <ion-checkbox ng-repeat="level in vm.levels"
+        <ion-checkbox ng-repeat="level in levels.content"
                     ng-model="level.checked" 
                     ng-checked="level.checked">
           {{ level.name }}

@@ -1,62 +1,20 @@
 angular
-.module('w4l.controllers', ['w4l.filters', 'w4l.factories'])
+.module('w4l.controllers', ['w4l.filters'])
 
 //URL /app
-.controller('appCtrl', function($scope, $recipeFactory, RecipesModel, Recipes_IngredientsModel, IngredientsModel, InstructionsModel, LevelsModel, CategoriesModel) {
-    var vm = this;
-    function getAll() {
-      RecipesModel.all()
-          .then(function (result) {
-              vm.data = result.data.data;
-          });
-    }
-    function getDetails(recipeId) {
-      RecipesModel.fetch(recipeId)
-          .then(function (result) {
-              vm.details = result.data.data[0];
-              vm.details2 = vm.details.__metadata.descriptives;
-          });
-    }
-    function getRecipeIngredients(recipeId) {
-      Recipes_IngredientsModel.fetchIngredients(recipeId)
-          .then(function (result) {
-              vm.recipeIingredients = result.data.data;
-          });
-    }
-    function getInstructions(recipeId) {
-      InstructionsModel.fetchInstructions(recipeId)
-          .then(function (result) {
-              vm.instructions = result.data.data;
-          });
-    }
-    function getCategories() {
-      CategoriesModel.all()
-          .then(function (result) {
-              vm.categories = result.data.data;
-          });
-    }
-    function getLevels() {
-      LevelsModel.all()
-          .then(function (result) {
-              vm.levels = result.data.data;
-          });
-    }
+.controller('appCtrl', function($scope, $recipeFactory, appFactory) {
+    $scope.recipes = appFactory.allRecipes();
+
     function getIngredients() {
       IngredientsModel.all()
           .then(function (result) {
-              vm.ingredients = result.data.data;
+              $scope.ingredients = result.data.data;
           });
     }
-    getAll();
-    getCategories();
-    getLevels();
   
     $scope.icon = "";
     $scope.actionIcon = "";
     $scope.selectedRecipe = 0;
-//    $scope.recipeDetails = "";
-//    $scope.recipeIngredients = "";
-//    $scope.recipeInstructions = "";
 
     $scope.actualView = function(cIcon){
         $scope.icon = cIcon;
@@ -69,10 +27,10 @@ angular
     //Enter in the details of a recipe
     $scope.selectRecipe = function(sRec){
         $scope.selectedRecipe = sRec;
-//      $scope.recipeDetails = $recipeFactory.getRecipe($scope.selectedRecipe);
-        getDetails(sRec);
-        getRecipeIngredients(sRec);
-        getInstructions(sRec);
+        
+        $scope.details = appFactory.getRecipeDetails(sRec);
+        $scope.recipeIngredients = appFactory.getRecipeIngredients(sRec);
+        $scope.instructions = appFactory.getRecipeInstructions(sRec);
     };
     
     //Create a random number to select a random recipe
@@ -84,5 +42,5 @@ angular
     $scope.recipeList = $recipeFactory.all();
     
 //    $scope.ingredientsCheckList = $recipeFactory.getIng(); 
-    $scope.ingredientsCheckList = vm.ingredients; 
+    $scope.ingredientsCheckList = $scope.ingredients; 
 });
