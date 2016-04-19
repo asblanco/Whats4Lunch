@@ -1,5 +1,5 @@
 angular
-.module('w4l.factories')
+.module('w4l.factories', [])
 
 .factory('appFactory', function($http, Backand) {
     var baseUrl = '/1/objects/',
