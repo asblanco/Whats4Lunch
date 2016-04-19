@@ -65,7 +65,8 @@ angular
     url: "/random/:recipeId",
     views: {
       'menuContent': {
-        templateUrl: "templates/recipeDetailsRandom.html"
+        templateUrl: "templates/recipeDetailsRandom.html",
+        controller: 'randomCtrl'
       }
     }
   })
