@@ -1,26 +1,33 @@
 <ion-view>
   <ion-header-bar class="bar-assertive" align-title="center">
     <a href="#/home"><button class="button button-icon icon ion-ios-home"></button></a>
-    <h1 class="title">{{recipeList[selectedRecipe].title}}</h1>
+    <h1 class="title">{{recipeDetails.details.name}}</h1>
     <button class="button button-icon ion-shuffle" ng-click="randomRecipe()"></button>
   </ion-header-bar>
 
   <ion-content class="recDetBody">
     <div class="recipeImage">
-        <img src="{{recipeList[selectedRecipe].img}}">
+        <img src="http://w4l-recipes.appspot.com/img/{{recipeDetails.details.image}}">
     </div>
+    <h5>Preparation time: {{recipeDetails.details.prepTime}} minutes</h5>
+    <h5>Cooking time: {{recipeDetails.details.cookTime}} minutes</h5>
+    <h5>Servings: {{recipeDetails.details.servings}}</h5>
+    <h5>Level: {{recipeDetails.details2.level.label}}</h5>
+    <h5>Category: {{recipeDetails.details2.category.label}}</h5>
       
     <div class="list">
       <h4 class="dividers"> Ingredients </h4>
       <ul style="list-style-type: disc">
-        <li ng-repeat="i in recipeList[selectedRecipe].ing">{{i}}</li>
+        <li ng-repeat="i in recipeIngredients.content">
+            - {{i.quantity}} {{i.__metadata.descriptives.ingredient.label}}
+        </li>
       </ul>
     </div>
       
     <h4 class="dividers"> Directions </h4>
     <div class="card">
-      <div ng-repeat="d in recipeList[selectedRecipe].dir" class="item item-text-wrap">
-          {{d}}
+      <div ng-repeat="d in instructions.content" class="item item-text-wrap">
+          {{d.instruction}}
       </div>
     </div>
   </ion-content>

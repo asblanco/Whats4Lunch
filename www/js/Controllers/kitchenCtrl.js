@@ -1,10 +1,10 @@
 angular
 .module('w4l.controllers')
 
-.controller('kitchenCtrl', function($scope, $ionicModal) {
-    $scope.recipeListIng = $scope.recipeList;
+.controller('kitchenCtrl', function($scope, $ionicModal, kitchenFactory) {
+    $scope.recipeListIng = $scope.recipes;
     $scope.noIngredients = "";
-    $scope.ingredients = [];
+    $scope.ingredients = kitchenFactory.allIngredients();
     
     $scope.buttonSearch = function (){
         $scope.recipeListIng = [];
@@ -12,21 +12,21 @@ angular
         var i = 0;
         var j = 0;
         var long = $scope.ingredientsCheckList.length;
-        var long2 = $scope.recipeList.length;
+        var long2 = $scope.recipes.length;
         for (i = 0; i < long; i++){
             if($scope.ingredientsCheckList[i].checked == true){
                 count++;
                 $scope.ing = $scope.ingredientsCheckList[i].name;
                 for(j = 0; j < long2; j++){
-                    if(_.contains($scope.recipeList[j].ing, $scope.ing)){
-                        $scope.recipeListIng.push($scope.recipeList[j]);
+                    if(_.contains($scope.recipes[j].ing, $scope.ing)){
+                        $scope.recipeListIng.push($scope.recipes[j]);
                     }
                 }
-            }    
+            }
         }
         
         if(count == 0)
-            $scope.recipeListIng = $scope.recipeList;
+            $scope.recipeListIng = $scope.recipes;
         
         $scope.closeModal();
     };

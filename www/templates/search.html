@@ -7,14 +7,14 @@
     
   <ion-content>
 <!--  List of recipes  --> 
-   <div class="list card" ng-repeat="object in recipes.content">
-      <a href="#/app/recipeList/{{object.id}}" ng-click="selectRecipe({{object.id}})">
+   <div class="list card" ng-repeat="recipe in recipes.content">
+      <a href="#/app/recipeList/{{recipe.id}}" ng-click="selectRecipe({{recipe.id}})">
         <div class="item item-image">
-          <img src="http://w4l-recipes.appspot.com/img/{{object.image}}">
-          <span class="recipeTitle">{{object.name}}</span>
+          <img src="http://w4l-recipes.appspot.com/img/{{recipe.image}}">
+          <span class="recipeTitle">{{recipe.name}}</span>
         </div>
         <div class="item">
-          <p>{{object.description}}</p>
+          <p>{{recipe.description}}</p>
         </div>
      </a>
    </div>

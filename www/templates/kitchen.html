@@ -6,15 +6,15 @@
   </ion-header-bar>
     
   <ion-content>
-    <h1>{{noIngredients}}</h1>
-    <div class="list card" ng-repeat="x in recipeListIng">
-      <a href="#/app/recipeList/{{x.id}}" ng-click="selectRecipe({{x.id}})">
+      <!--  List of recipes  -->
+    <div class="list card" ng-repeat="recipe in recipes.content">
+      <a href="#/app/recipeList/{{recipe.id}}" ng-click="selectRecipe({{recipe.id}})">
       <div class="item item-image">
-        <img src="{{x.img}}">
-        <span class="recipeTitle">{{x.title}}</span>
+        <img src="http://w4l-recipes.appspot.com/img/{{recipe.image}}">
+        <span class="recipeTitle">{{recipe.name}}</span>
       </div>
       <div class="item">
-        <p>{{x.details}}</p>
+        <p>{{recipe.description}}</p>
       </div>
       </a>
     </div>
@@ -42,7 +42,7 @@
       
 <!-- Show the ingredients in a list -->
       <ul class="list">
-        <li class="item item-checkbox" ng-repeat="ing in ingredientsCheckList | filter:query">
+        <li class="item item-checkbox" ng-repeat="ing in ingredients.content | filter:query">
            <label class="checkbox">
              <input type="checkbox" ng-model="ing.checked">
            </label> {{ing.name}}

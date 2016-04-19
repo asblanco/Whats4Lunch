@@ -3,7 +3,7 @@ angular
 
 .factory('appFactory', function($http, Backand) {
     var baseUrl = '/1/objects/',
-        recipeList = {content:null},
+        recipeList = {content:null, size:null},
         recipeDetails = {details:null, details2:null},
         ingredients = {content:null},
         instructions = {content:null};
@@ -14,6 +14,7 @@ angular
 
     $http.get(getUrl('recipe/')).success(function(data) {
         recipeList.content = data.data;
+        recipeList.size = data.totalRows;
     }); 
     
     function getRecipeDetails(id) {

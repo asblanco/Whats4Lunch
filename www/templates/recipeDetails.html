@@ -1,4 +1,4 @@
-<ion-view view-title="{{details.details.name}}">
+<ion-view view-title="{{recipeDetails.details.name}}">
   <ion-nav-bar class="bar-assertive" align-title="center">
     <ion-nav-back-button>
     </ion-nav-back-button>
@@ -6,13 +6,13 @@
     
   <ion-content class="recDetBody">
     <div class="recipeImage">
-        <img src="http://w4l-recipes.appspot.com/img/{{details.details.image}}">
+        <img src="http://w4l-recipes.appspot.com/img/{{recipeDetails.details.image}}">
     </div>
-    <h5>Preparation time: {{details.details.prepTime}} minutes</h5>
-    <h5>Cooking time: {{details.details.cookTime}} minutes</h5>
-    <h5>Servings: {{details.details.servings}}</h5>
-    <h5>Level: {{details.details2.level.label}}</h5>
-    <h5>Category: {{details.details2.category.label}}</h5>
+    <h5>Preparation time: {{recipeDetails.details.prepTime}} minutes</h5>
+    <h5>Cooking time: {{recipeDetails.details.cookTime}} minutes</h5>
+    <h5>Servings: {{recipeDetails.details.servings}}</h5>
+    <h5>Level: {{recipeDetails.details2.level.label}}</h5>
+    <h5>Category: {{recipeDetails.details2.category.label}}</h5>
     <h4 class="dividers"> Ingredients </h4>
     <div class="list">
       <ul style="list-style-type: disc">
