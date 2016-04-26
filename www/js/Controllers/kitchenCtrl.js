@@ -29,20 +29,20 @@ angular
                     ingredient = resp.data.data[j].__metadata.descriptives.ingredient.label;
                     rec_ingRecipeID = resp.data.data[j].__metadata.descriptives.recipe.value;
                     
-                    if( rec_ingRecipeID == recipesRecipeID && !_.contains(recipeIngList, ingredient)){
-                        recipeIngList.push( ingredient );
+                    if( rec_ingRecipeID == recipesRecipeID ){
+                        recipeIngList = _.union(recipeIngList, [ingredient]);
                     }
                 }
                 
                 recipes.push({ id: response.data.data[i].id,
-                                name: response.data.data[i].name,
-                                description: response.data.data[i].description,
-                                category: response.data.data[i].category,
-                                level: response.data.data[i].level,
-                                totalTime: response.data.data[i].totalTime,
-                                image: response.data.data[i].image,
-                                ingredients: recipeIngList
-                              });
+                               name: response.data.data[i].name,
+                               description: response.data.data[i].description,
+                               category: response.data.data[i].category,
+                               level: response.data.data[i].level,
+                               totalTime: response.data.data[i].totalTime,
+                               image: response.data.data[i].image,
+                               ingredients: recipeIngList
+                            });
             }
             
             $scope.recipesK = recipes;

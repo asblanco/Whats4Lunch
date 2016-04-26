@@ -3,34 +3,34 @@ angular
 
 .factory('searchFactory', function($http, Backand) {
     var baseUrl = '/1/objects/',
-        categories = {content:null, size:null},
-        levels = {content:null, size:null};
+        categories,
+        levels;
     
     function getUrl(objectName) {
         return Backand.getApiUrl() + baseUrl + objectName;
     }
     
     function allCategories() {
-          return $http.get(getUrl('category/'));
+          return $http.get(getUrl('category/'))
+                .then(function(response) {
+                    return response;
+                });
     };
     
     function allLevels() {
-          return $http.get(getUrl('level/'));
+          return $http.get(getUrl('level/'))
+                .then(function(response) {
+                    return response;
+                });
     };
         
     return {
         allCategories: function(){
-            allCategories().success(function(data) {
-                categories.content = data.data;
-                categories.size = data.data.totalRows;
-            }); 
+            categories = allCategories();
             return categories;
         },
         allLevels: function(){
-            allLevels().success(function(data) {
-                levels.content = data.data;
-                levels.size = data.data.totalRows;
-            }); 
+            levels = allLevels();
             return levels;
         }
     };
