@@ -3,7 +3,7 @@ angular
 
 .factory('appFactory', function($http, Backand) {
     var baseUrl = '/1/objects/',
-        recipeList = {content:null, size:null},
+        recipeList,
         recipeDetails = {details:null, details2:null},
         ingredients = {content:null},
         instructions = {content:null};
@@ -12,10 +12,11 @@ angular
         return Backand.getApiUrl() + baseUrl + objectName;
     }
 
-    $http.get(getUrl('recipe/')).success(function(data) {
-        recipeList.content = data.data;
-        recipeList.size = data.totalRows;
-    }); 
+    function allRecipes(){
+        return $http.get(getUrl('recipe/')).then(function(response) {
+            return response;
+        }); 
+    };
     
     function getRecipeDetails(id) {
           return $http ({
@@ -33,8 +34,8 @@ angular
           });
       };
     
-      //Return the ingredients of the recipeId
-      function getRecipeIng(recipeId) {
+    //Return the ingredients of the recipeId
+    function getRecipeIng(recipeId) {
           return $http ({
             method: 'GET',
             url: getUrl('recipes_ingredients'),
@@ -69,6 +70,7 @@ angular
     
     return {
         allRecipes: function() {
+            recipeList = allRecipes();
             return recipeList;
         },
         getRecipeDetails: function(id){

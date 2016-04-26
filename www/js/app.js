@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'app.controllers' is found in controllers folder
 angular
-.module('w4l', ['ionic', 'backand', 'w4l.controllers', 'w4l.services', 'w4l.factories', 'underscore'])
+.module('w4l', ['ionic', 'backand', 'w4l.controllers', 'underscore'])
 
 /*$ImageCacheFactory on .run to preload on cache memory the firsts images that the app displays avoiding load the page first without any image*/
 .run(function($ionicPlatform) {

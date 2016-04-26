@@ -1,11 +1,10 @@
 angular
-.module('w4l.controllers', ['w4l.filters'])
+.module('w4l.controllers', ['w4l.filters', 'w4l.factories'])
 
 //URL /app
-.controller('appCtrl', function($scope, appFactory) {
-    $scope.recipes = appFactory.allRecipes();
+.controller('appCtrl', function($scope, appFactory) { 
     $scope.selectedRecipe = 1;
-    
+
     //Load details of a recipe
     $scope.selectRecipe = function(sRec){
         $scope.selectedRecipe = sRec;
@@ -14,6 +13,4 @@ angular
         $scope.recipeIngredients = appFactory.getRecipeIngredients(sRec);
         $scope.instructions = appFactory.getRecipeInstructions(sRec);
     };
-
-    $scope.ingredientsCheckList = $scope.ingredients; 
 });

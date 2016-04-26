@@ -28,7 +28,8 @@ angular
     
     $scope.checkListTime = [
         { text: "< 20 minutes", checked: false },
-        { text: "20-45 minutes", checked: false }
+        { text: "20-45 minutes", checked: false },
+        { text: "> 45 minutes", checked: false }
     ];
     //Save the values of the check boxes
     $scope.checksTime = _.pluck($scope.checkListTime, 'checked');
@@ -50,14 +51,6 @@ angular
     //Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
-    });
-    // Execute action on hide modal
-    $scope.$on('modal.hidden', function() {
-      // Execute action
-    });
-    // Execute action on remove modal
-    $scope.$on('modal.removed', function() {
-      // Execute action
     });
     
 /*---- Method to execute Filters ----*/
