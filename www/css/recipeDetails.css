@@ -6,6 +6,12 @@
     width: 100%;
 }
 
+/* Only preparation time, cooking time, servings... use h5 */
+h5 {
+  padding-left: 4%;
+  display:inline;
+}
+
 .dividers {
     text-transform: uppercase;
     color: crimson;
