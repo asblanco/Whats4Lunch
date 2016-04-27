@@ -3,6 +3,7 @@ angular
 
 .controller('kitchenCtrl', function($scope, $ionicModal, kitchenFactory, appFactory) {
     $scope.recipesK = []; //Recipes that shows on the view
+    $scope.empty = ""; //Text when the filter gives empty list of recipes
     var recipes = []; //All the recipes
     $scope.ingredients = []; //Ingredients that shows on the view
     var checkIng = []; //Saved check list of ingredients
@@ -65,6 +66,7 @@ angular
                 /* It saves on recipesK the recipes that you can make with the selected ingredients */
                 $scope.searchButton = function (){
                     $scope.recipesK = [];
+                    $scope.empty = "";
                     // Update the list of selected ingredients
                     var nameCheckIng = [];
                     nCheckIng = 0; //How many ingredients are selected
@@ -101,6 +103,8 @@ angular
                                     $scope.recipesK.push(recipes[i]);
                             }
                         }
+                        if($scope.recipesK.length == 0)
+                            $scope.empty = "Sorry, you need more ingredients to cook any recipe \n :(";
                     }
 
                     $scope.closeModal();

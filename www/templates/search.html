@@ -6,8 +6,12 @@
   </ion-header-bar>
     
   <ion-content>
-<!--  List of recipes  --> 
-   <div class="list card" ng-repeat="recipe in recipesS">
+    <!--  Text when the filter gives no recipes  -->
+    <div class="empty-text">
+      <h3 style="color: grey">{{empty}}</h3>
+    </div>
+    <!--  List of recipes  --> 
+    <div class="list card" ng-repeat="recipe in recipesS">
       <a href="#/app/recipeList/{{recipe.id}}" ng-click="selectRecipe({{recipe.id}})">
         <div class="item item-image">
           <img src="http://w4l-recipes.appspot.com/img/{{recipe.image}}">
@@ -16,8 +20,8 @@
         <div class="item">
           <p>{{recipe.description}}</p>
         </div>
-     </a>
-   </div>
+      </a>
+    </div>
   </ion-content>
 </ion-view>
 

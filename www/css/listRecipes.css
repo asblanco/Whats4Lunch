@@ -17,6 +17,12 @@ a {
     text-decoration: none;
 }
 
+.empty-text {
+    position: absolute;
+    top: 45%;
+    margin-left: 4%;
+}
+
 /*Slide in right CSS animation for modal pages on Kitchen and Search*/
 .slide-in-right {
   -webkit-transform: translateX(100%);

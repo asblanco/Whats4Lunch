@@ -6,6 +6,11 @@
   </ion-header-bar>
     
   <ion-content>
+    <!--  Text when the filter gives no recipes  -->
+    <div class="empty-text">
+        <h3 style="color: grey">{{empty}}</h3>
+    </div>
+    
     <!--  List of recipes  -->
     <div class="list card" ng-repeat="recipe in recipesK">
       <a href="#/app/recipeList/{{recipe.id}}" ng-click="selectRecipe({{recipe.id}})">

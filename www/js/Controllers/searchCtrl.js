@@ -5,6 +5,7 @@ angular
 .controller('searchCtrl', function($scope, $ionicModal, searchFactory, appFactory) {
     
     $scope.recipesS = []; //Recipes that shows on the view
+    $scope.empty = "";
     $scope.categories = [];
     $scope.levels = [];
     var recipes = []; //All the recipes
@@ -69,6 +70,7 @@ angular
                     var countChecksCat = 0; //Increases +1 in each filter it enters
                     checksCat = _.pluck($scope.categories, 'checked'); //Save the checkboxes
                     $scope.recipesS = [];
+                    $scope.empty = "";
 
                     //Make the filters with all the recipes (recipes) making the union in recipesS
                     var categID = _.pluck($scope.categories, 'id');
@@ -146,6 +148,9 @@ angular
                     //If none time filter is selected, save it without time filter
                     if(countTime == 0)
                         $scope.recipesS = recipesSTime;
+                  
+                    if($scope.recipesS.length == 0)
+                        $scope.empty = "Sorry, no recipes with your selection";
                     
                     $scope.closeModal();
                 };
