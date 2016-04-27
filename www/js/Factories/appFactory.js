@@ -3,7 +3,7 @@ angular
 
 .factory('appFactory', function($http, Backand) {
     var baseUrl = '/1/objects/',
-        recipeList,
+        recipes,
         recipeDetails = {details:null, details2:null},
         ingredients = {content:null},
         instructions = {content:null};
@@ -11,10 +11,16 @@ angular
     function getUrl(objectName) {
         return Backand.getApiUrl() + baseUrl + objectName;
     }
-
+    
     function allRecipes(){
         return $http.get(getUrl('recipe/')).then(function(response) {
             return response;
+        }); 
+    };
+    
+    function nRecipes(){
+        return $http.get(getUrl('recipe/')).then(function(response) {
+            return response.data.totalRows;
         }); 
     };
     
@@ -70,8 +76,11 @@ angular
     
     return {
         allRecipes: function() {
-            recipeList = allRecipes();
-            return recipeList;
+            recipes = allRecipes();
+            return recipes;
+        },
+        numRecipes: function() { //Number of recipes, used to generate a random recipe ID
+            return nRecipes();
         },
         getRecipeDetails: function(id){
             getRecipeDetails(id).success(function(data) {

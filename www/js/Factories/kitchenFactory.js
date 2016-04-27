@@ -17,7 +17,7 @@ angular
             method: 'GET',
             url: getUrl('ingredient'),
             params: {
-                pageSize: 50,
+                pageSize: 100,
                 pageNumber: 1,
                 sort: '[{fieldName:\'name\', order:\'asc\'}]'
             }
