@@ -1,5 +1,5 @@
 angular
-.module('w4l.controllers', ['w4l.filters', 'w4l.factories'])
+.module('w4l.controllers', ['w4l.factories'])
 
 //URL /app
 .controller('appCtrl', function($scope, appFactory) { 
